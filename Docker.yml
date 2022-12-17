@@ -1,0 +1,8 @@
+FROM centos:latest
+MAINTAINER samirmaske23091998@gmail.com
+RUN yum install -y httpd ; yum install zip -y ; yum install  unzip -y
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page286/coto.zip /var/www/html
+WORKDIR /var/www/html
+RUN unzip coto.zip
+CMD ["/usr/sbin/httpd","-D","-DFOREGROUND"]
+EXPOSE 80
